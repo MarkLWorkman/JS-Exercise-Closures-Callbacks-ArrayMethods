@@ -82,11 +82,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, number){
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < number; i++) {
+    homeScore = homeScore + callback();
+    awayScore = awayScore + callback();
+  }
+  return {"Away": awayScore, "Home": homeScore}
 }
+console.log(finalScore(inning, 6));
 
 /* Task 4: 
 
