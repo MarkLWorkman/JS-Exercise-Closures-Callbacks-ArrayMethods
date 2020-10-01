@@ -66,7 +66,7 @@ function inning(){
   score = Math.floor(Math.random()*3)
   return score;
 }
-console.log(inning());
+//console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -91,7 +91,7 @@ function finalScore(callback, number){
   }
   return {"Away": awayScore, "Home": homeScore}
 }
-console.log(finalScore(inning, 6));
+//console.log(finalScore(inning, 6));
 
 /* Task 4: 
 
@@ -115,15 +115,12 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-let getInningScore = function(callback, number) {
-  return finalScore(callback, number);
-}
-console.log(getInningScore(inning, 1));
-
 function scoreboard(cb1, cb2, number) {
+  let scoreManager = [];
   for (let i = 0; i < number; i++) {
-    console.log([i+1] + " " + "Inning: " + cb1(cb2, 1));
+    scoreManager.push(`Inning ${i+1}: ${cb1(cb2, 1)}`)
   }
+  return scoreManager;
 }
-console.log(scoreboard(getInningScore, inning, 9));
+console.log(scoreboard(finalScore, inning, 9));
 

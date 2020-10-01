@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is when a function has everything it needs to work correctly. Ie if a function has to reach out to the global to access a variable and is able to do it.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used when the console log tries to access the name variable. That is closure because name is not defined in the function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Dan's name is always the same. What could be different is the roll value.
+
 c. What is the lexical scope of `newRoll`? 
+
+The lexical scope of newRoll is the ability to go outside of the function to utilize other things. For instance, Math.floor and Math.random
 
 ### Task 3 - Stretch Goals
 
