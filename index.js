@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *  In counter1 the variable count is inside the scope of the funtion. It is a global variable in counter2.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *  Technically they both use closure, but counter1 uses it when it returns the second function.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ *  I would use counter1 more frequently because how it utilizes closeure is more memory efficient. I would utilize counter2 in situations where memory really doesnt matter and we just needed a funtion to do a simple job.
  *
 */
 
