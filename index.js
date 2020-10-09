@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *  In counter1 the variable count is inside the scope of the funtion. It is a global variable in counter2.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *  Technically they both use closure, but counter1 uses it when it returns the second function.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ *  I would use counter1 more frequently because how it utilizes closeure is more memory efficient. I would utilize counter2 in situations where memory really doesnt matter and we just needed a funtion to do a simple job.
  *
 */
 
@@ -56,11 +62,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  score = Math.floor(Math.random()*3)
+  return score;
 }
+//console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,11 +82,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, number){
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < number; i++) {
+    homeScore = homeScore + callback();
+    awayScore = awayScore + callback();
+  }
+  return {"Away": awayScore, "Home": homeScore}
 }
+//console.log(finalScore(inning, 6));
 
 /* Task 4: 
 
@@ -104,8 +115,12 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(cb1, cb2, number) {
+  let scoreManager = [];
+  for (let i = 0; i < number; i++) {
+    scoreManager.push(`Inning ${i+1}: ${cb1(cb2, 1)}`)
+  }
+  return scoreManager;
 }
-
+console.log(scoreboard(finalScore, inning, 9));
 
